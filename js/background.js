@@ -1,13 +1,25 @@
 chrome.tabs.onActivated.addListener(tab => {
     chrome.tabs.get(tab.tabId, current_tab_info => {
       console.log(current_tab_info.url)
-      if ("https://www.bursamarketplace.com/" === current_tab_info.url){
+    //   if ("https://www.bursamarketplace.com/" === current_tab_info.url){
+    if(/^https:\/\/www\.bursamarketplace/.test(current_tab_info.url)){
         injectDependeciesScripts(tab.id);
         chrome.tabs.executeScript(null, {file: 'js/content.js'}, () => console.log('2 injected'))
       };
     });
   }
 )
+
+chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
+    chrome.tabs.get(tabId, current_tab_info => {
+        console.log(current_tab_info.url)
+      //   if ("https://www.bursamarketplace.com/" === current_tab_info.url){
+      if(/^https:\/\/www\.bursamarketplace/.test(current_tab_info.url)){
+          injectDependeciesScripts(tab.id);
+          chrome.tabs.executeScript(null, {file: 'js/content.js'}, () => console.log('2 injected'))
+        };
+      });
+});
 
 // Helper function to inject any script dependencies so our content script can use
 function injectDependeciesScripts(tab_id) {

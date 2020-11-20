@@ -26,17 +26,73 @@
             </div>
         </div>
         <div class="mb-2">
-            <button id='dl-intro-next' class='w-full py-2 rounded-full bg-green-500 text-center text-white'> Let's Go!</button>
+            <button id='goto-features-next' class='w-full py-2 rounded-full bg-green-500 text-center text-white'> Let's Go!</button>
         </div>
+    </div>
+
+    <div id='features-1' hidden class='flex flex-col justify-between h-full'>
+        <div>
+            <p class='text-xl font-bold mb-4'> Looking Around Bursa Marketplace </p>
+            <div class='text-md text-gray-800 mb-4'>
+                <p > Let's look around. Hover onto the blue indicator button to show more infomation </p>
+            </div>
+        </div>
+        <div class="mb-2">
+            <button id='goto-stocks-questions' class='w-full py-2 rounded-full bg-green-500 text-center text-white'> Done Looking Around</button>
+        </div> 
+    </div>
+
+    <div id='stock-questions' hidden class='flex flex-col justify-between h-full'>
+        <div>
+            <p class='text-xl font-bold mb-4'> Personalizing Your Experience </p>
+            <div class='text-md text-gray-800 mb-4'>
+                <p > Next, let's identify what are the most useful pages for you. </p>
+                <p class='mt-2' > Hensem, which of the following description fits you the best?</p>
+            </div>
+        </div>
+        <div class='mb-8'>
+            <button id='goto-stocks1' class='w-full py-2 px-4 rounded-full bg-green-500 text-center text-white my-2'> I don’t really understand how finance work </button>
+            <button id='goto-stocks2' class='w-full py-2 px-4 rounded-full bg-green-500 text-center text-white my-2'> I learnt a bit about finance here and there </button>
+            <button id='goto-stocks3' class='w-full py-2 px-4 rounded-full bg-green-500 text-center text-white my-2'> I understand the concepts but have no practical experience </button>
+            <button id='goto-stocks4' class='w-full py-2 px-4 rounded-full bg-green-500 text-center text-white my-2'> I am an experienced investor who are trying to learn more </button>
+        </div>
+        <!-- <div class="mb-2">
+            <button id='dl-intro-next' class='w-full py-2 rounded-full bg-green-500 text-center text-white'> Done Looking Around</button>
+        </div>  -->
     </div>
     
 </div>
 
 <script>
     $( "#dl-intro-next" ).click(function() {
-    // alert( "Handler for .click() called." );
         $("#first-intro").attr("hidden",true);
         $("#second-intro").attr("hidden",false);
-        // $('#second-intro').removeAttr('hidden');
+    });
+
+    $( "#goto-features-next" ).click(function() {
+        $("#second-intro").attr("hidden",true);
+        $("#features-1").attr("hidden",false);
+
+        $("a.nav_learn").addClass("bg-blue-200 animate-pulse")
+    });
+
+    $( "#goto-stocks-questions" ).click(function() {
+        $("#features-1").attr("hidden",true);
+        $("#stock-questions").attr("hidden",false);
+
+        $("a.nav_learn").addClass("bg-blue-200 animate-pulse")
+    });
+
+    $("#goto-stocks1" ).click(function() {
+        window.location.href = "https://www.bursamarketplace.com/mkt/themarket/stock";
+    });
+    $("#goto-stocks2" ).click(function() {
+        window.location.href = "https://www.bursamarketplace.com/mkt/themarket/stock";
+    });
+    $("#goto-stocks3" ).click(function() {
+        window.location.href = "https://www.bursamarketplace.com/mkt/themarket/stock";
+    });
+    $("#goto-stocks4" ).click(function() {
+        window.location.href = "https://www.bursamarketplace.com/mkt/themarket/stock";
     });
 </script>
