@@ -1,25 +1,27 @@
-// chrome.runtime.onInstalled.addListener(function() {
-//     chrome.storage.sync.set({color: '#3aa757'}, function() {
-//       console.log("The color is green.");
-//     });
-//   });
 chrome.tabs.onActivated.addListener(tab => {
     chrome.tabs.get(tab.tabId, current_tab_info => {
       console.log(current_tab_info.url)
-      if(/^https:\/\/www\.google/.test(current_tab_info.url)){
-        chrome.tabs.insertCSS(null, {file: 'css/mystyles.css'})
-        chrome.tabs.executeScript(null, {file: 'js/foreground.js'}, () => console.log('i injected'))
-      }
-      else if(/^https:\/\/www\.bursamarketplace/.test(current_tab_info.url)){
-        chrome.tabs.insertCSS(null, {file: 'css/mystyles.css'})
-        chrome.tabs.executeScript(null, {file: 'js/foreground2.js'}, () => console.log('2 injected'))
+      if ("https://www.bursamarketplace.com/" === current_tab_info.url){
+        // chrome.tabs.executeScript(tab.id, {
+        //     file: 'js/libraries/jquery-3.5.1.min.js'
+        // });
+        injectDependeciesScripts(tab.id);
+        chrome.tabs.executeScript(null, {file: 'js/content.js'}, () => console.log('2 injected'))
       };
-/*
-      else if(/^https:\/\/www\.bursamarketplace\.mlt/.test(current_tab_info.url)){
-        chrome.tabs.insertCSS(null, {file: 'css/mystyles.css'})
-        chrome.tabs.executeScript(null, {file: 'js/popinfo.js'}, () => console.log('i injected'))
-      };*/
     });
   }
 )
 
+// Helper function to inject any script dependencies so our content script can use
+function injectDependeciesScripts(tab_id) {
+    chrome.tabs.executeScript(tab_id, {
+        file: 'js/libraries/jquery-3.5.1.min.js'
+    });
+    chrome.tabs.insertCSS(tab_id, {
+        file: 'css/tailwind.min.css'
+    });
+    chrome.tabs.insertCSS(tab_id, {
+        file: 'css/content.css'
+    })
+
+}
