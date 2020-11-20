@@ -2,10 +2,20 @@
     "name": "Duitlingo",
     "version": "1.0",
     "description": "Build an Extension!",
-    "permissions": ["storage"],
+    "permissions": ["storage", "activeTab"],
+    "web_accessible_resources": ["js/content.js"],
     "background": {
-      "scripts": ["background.js"],
+      "scripts": ["js/background.js"],
       "persistent": false
     },
+    "browser_action": {
+        "default_icon": "assets/logo-32.png",
+          "default_popup": "html/popup.html"
+      },
+    "content_scripts": [{
+        "js": ["js/libraries/jquery-3.5.1.min.js", "js/content.js"],
+        "matches": ["https://www.bursamarketplace.com/*"]
+    }],
+    
     "manifest_version": 2
   }
