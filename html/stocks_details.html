@@ -6,22 +6,25 @@
     <div id='stocks-1' class='flex flex-col justify-between h-full overflow-y-scroll'>
         <div>
             <p class='text-xl font-bold'> So, what might have caused a dip in stock price? </p>
-            <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_yfnq6zia.json"  background="transparent"  speed="0.8"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>        </div>
+            <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_yfnq6zia.json"  background="transparent"  speed="0.8"  style="width: 250px; height: 250px;" class='mx-auto'  loop  autoplay></lottie-player>        </div>
         <div>
             <p class='text-md text-gray-800 mb-2'> 
-                Often, a dip can be attributed to <strong class='font-bold'>market sentiment</strong>. Short term traders often react to news that might affect the company.
+                Often, a dip can be attributed to <strong class='font-bold'>market sentiment</strong>. 
             </p>
             <p class='text-md text-gray-800 mb-2'> 
-                Check out the <strong class='font-bold'>news</strong>  tab to see if there any negative sentiment surrounding Careplus Group Berhad.
+                Check out the <strong class='font-bold'>NEWS</strong>  tab to see if there any negative news surrounding the company.
             </p>
             <p class='text-md text-gray-800 mb-2'> 
-                Another reason could be a change in the <strong class='font-bold'>valuation of the company</strong>. Valuation of a stock might change due to profit projections or macroeconomic conditions.
-            </p>
-            <p class='text-md text-gray-800 mb-2'> 
+                Another reason could be <strong class='font-bold'>below-expectation performance of the company.</strong>. 
                 Check out the <strong class='font-bold'>analyst consensus</strong>, 
                 <strong class='font-bold'>research</strong>, or
                 <strong class='font-bold'>financials</strong> tab to see the current market valuation for MTAG Group Berhad.
             </p>
+            <!-- <p class='text-md text-gray-800 mb-2'> 
+                Check out the <strong class='font-bold'>analyst consensus</strong>, 
+                <strong class='font-bold'>research</strong>, or
+                <strong class='font-bold'>financials</strong> tab to see the current market valuation for MTAG Group Berhad.
+            </p> -->
         </div>
         <div class="mb-2">
             <button id='goto-what-do-i-do' class='w-full py-2 rounded-full bg-green-500 text-center text-white'> What Should I Do? </button>
@@ -47,7 +50,30 @@
         $("a:contains(Financials)").addClass('bg-yellow-200 px-2 py-1 rounded-lg')
 
         $("a:contains(News)").addClass('bg-blue-200 px-2 py-1 rounded-lg')
+        
+        
 
+        $("li:contains(Research)").addClass('relative')
+        $("li:contains(Research)").append("<div class='duitlingo-widget-stock-tooltip p-2 text-sm font-normal text-center bg-yellow-200 '> Check valuation of the company </div>")
+
+        $("li:contains(News)").addClass('relative')
+        // $("li:contains(News)").append(`<span class="flex absolute h-3 w-3 top-0 right-0 -mt-1 -mr-1">
+        //         <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
+        //         <span class="relative inline-flex rounded-full h-3 w-3 bg-purple-500"></span>
+        //     </span>`)
+        $("li:contains(News)").append("<div class='duitlingo-widget-stock-tooltip p-2 text-sm font-normal text-center bg-blue-200 '>Check market sentiment </div>")
+        // `<div class="flex justify-around">
+        //     <span class="relative inline-flex rounded-md shadow-sm">
+        //     <button type="button" class="inline-flex items-center px-4 py-2 border border-purple-400 text-base leading-6 font-medium rounded-md text-purple-800 bg-white hover:text-purple-700 focus:border-purple-300 transition ease-in-out duration-150">
+        //         Transactions
+        //     </button>
+        //     <span class="flex absolute h-3 w-3 top-0 right-0 -mt-1 -mr-1">
+        //         <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
+        //         <span class="relative inline-flex rounded-full h-3 w-3 bg-purple-500"></span>
+        //     </span>
+        //     </span>
+        // </div>`
+        // $("a:contains(News)").append("<span class='flex h-3 w-3'><span class='animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75'></span><span class='relative inline-flex rounded-full h-3 w-3 bg-purple-500'></span></span>")
         setTimeout(function(){
             $("#dl-widget").attr("hidden",false);
         }, 1000)
