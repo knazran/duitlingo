@@ -1,32 +1,33 @@
 <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-<div id='dl-widget' class="duitlingo-widget-body rounded-lg">
+<div id='dl-widget' class="duitlingo-widget-body rounded-lg" style="height:auto">
     <div id='stocks-1' class='flex flex-col justify-between h-full overflow-y-scroll'>
         <div>
-            <p class='text-xl font-bold'> Details of Stock (1/2) </p>
-        <div>
+            <h2 class='text-xl font-bold mb-4 blue-accent-5'> Details of Stock (1/2) </h2>
+        <div class='my-8'>
             <p class='text-md text-gray-800 mb-2'> 
                 This is the overview of the stock.
             </p>
             <p class='text-md text-gray-800 mb-2'> 
-                Here you can see the Analyst Consensus on this stock. This represents the general view of the analysts on the future performance of this stock.
+                Here you can see the <strong>Analyst Consensus</strong> on this stock. This represents the general view of the analysts on the future performance of this stock.
             </p>
             <p class='text-md text-gray-800 mb-2'> 
-                Besides, there is a scoring on the company done by Alpha Indicator based on different aspects such as earning, risk, fundamental etc.
+                Besides, there is a scoring on the company done by <strong>Alpha Indicator</strong> based on different aspects such as earning, risk, fundamental etc.
             </p>
             <p class='text-md text-gray-800 mb-2'> 
                 Don’t worry if you don’t understand these terms, you would learn more about these as we progress. &#128512;
             </p>
         </div>
         <div class="mb-2">
-            <button id='goto-detail-stock' class='w-full py-2 rounded-full bg-green-500 text-center text-white'> Next </button>
+            <button id='goto-detail-stock' class='w-full py-2 rounded-full text-lg background-blue-accent-4 text-center text-white'> Next </button>
         </div>
         </div>
     </div>
 
     <div id='stocks-2' hidden class='flex flex-col justify-between h-full overflow-y-scroll'>
         <div>
-            <p class='text-xl font-bold'> Details of Stock (2/2) </p>
-        <div>
+            <div id='image-bull' class='w-3/5 mb-4 mx-auto'></div>
+            <h2 class='text-xl font-bold  blue-accent-5'> Details of Stock (2/2) </h2>
+        <div class='my-8'>
             <p class='text-md text-gray-800 mb-2'> 
                 You can view more details on each of the highlighted tabs.
             </p>
@@ -35,7 +36,11 @@
             </p>
         </div>
         <div class="mb-2">
-            <button id='goto-where-to-learn' class='w-full py-2 rounded-full bg-green-500 text-center text-white'> Where can I learn more? </button>
+            <button id='goto-value-stock' class='w-full py-2 rounded-full text-lg background-purple-accent-4 text-center text-white mb-2'> 
+                Learn more about stocks and equities
+                <p class='text-xs my-0 py-0' style='font-size:12px'>powered by Bursa Academy</p>
+            </button>
+            <!-- <button id='goto-where-to-learn' class='w-full py-2 rounded-full text-lg background-blue-accent-4 text-center text-white'>  </button> -->
         </div>
         </div>
     </div>
@@ -164,7 +169,9 @@
         $("#stocks-1").attr("hidden",true);
         $("#stocks-2").attr("hidden",true);
 
-        window.location.href = "https://www.bursamarketplace.com/mkt/learn";
+        // window.location.href = "https://www.bursamarketplace.com/mkt/learn";
+        window.location.href = "https://www.bursaacademy.bursamarketplace.com/en/articles/equities";
+        
         $(".duitlingo-widget-body").attr("hidden",true);
 
     });

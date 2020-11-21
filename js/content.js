@@ -48,11 +48,21 @@ $(document).ready(function(){
     if (currentUrl === "https://www.bursamarketplace.com/mkt/themarket/stock/MTAG/analystconsensus"){
         console.log("render analyst consensus")
         renderWidget("html/analyst_widget.html")
+
+        var bull_img = chrome.extension.getURL('assets/MrBull.png')
+        if (!$('#image-bull img').length){
+            $('#image-bull').append(`<img src="${bull_img}" alt="thebull">`)
+        }
     }
     
     if (currentUrl === "https://www.bursamarketplace.com/mkt/themarket/stock/GENM"){
         console.log("render genm stocks")
         renderWidget("html/stocks_explain.html")
+
+        var bull_img = chrome.extension.getURL('assets/MrBull.png')
+        if (!$('#image-bull img').length){
+            $('#image-bull').append(`<img src="${bull_img}" alt="thebull">`)
+        }
     }
 });
 
