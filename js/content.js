@@ -13,6 +13,7 @@ $(document).ready(function(){
         }
         if (!$('#image-bull img').length){
             $('#image-bull').append(`<img src="${bull_img}" alt="thebull">`)
+            $('#image-bull-2').append(`<img src="${bull_img}" alt="thebull">`)
         }
     }
 
