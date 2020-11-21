@@ -12,7 +12,7 @@
           "default_popup": "html/popup.html"
       },
     
-    "web_accessible_resources": ["js/content.js", "html/intro_widget.html", "html/stocks_widget.html", "html/mlt_widget.html",  "css/tailwind.min.css"],
+    "web_accessible_resources": ["js/content.js", "html/intro_widget.html", "html/stocks_widget.html", "html/stocks_details.html", "html/mlt_widget.html", "html/analyst_widget.html",  "css/tailwind.min.css"],
     "permissions": [
       "tabs",
       "storage",
