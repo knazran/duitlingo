@@ -11,7 +11,7 @@
                 <p class='mt-2' > Do you need me to show you around?</p>
             </div>
         </div>
-        <!-- <div><img src=thebull alt="thebull"></div> -->
+        <div id='image-bull'></div>
         <div class="mb-2">
             <button id='dl-intro-next' class='w-full py-2 rounded-full bg-green-500 text-center text-white'> Yes, tell me more about Bursa Marketplace </button>
         </div>
@@ -70,6 +70,7 @@
 </div>
 
 <script>
+
     $( "#dl-intro-next" ).click(function() {
         $("#first-intro").attr("hidden",true);
         $("#second-intro").attr("hidden",false);
@@ -285,6 +286,8 @@
     $("#goto-stocks4" ).click(function() {
         window.location.href = "https://www.bursamarketplace.com/mkt/themarket/stock";
     });
+
+
 </script>
 
 
