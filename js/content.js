@@ -29,6 +29,11 @@ $(document).ready(function(){
         console.log("render mtag stocks")
         renderWidget("html/stocks_details.html")
     }
+
+    if (currentUrl === "https://www.bursamarketplace.com/mkt/themarket/stock/MTAG/analystconsensus"){
+        console.log("render analyst consensus")
+        renderWidget("html/analyst_widget.html")
+    }
     
 });
 
