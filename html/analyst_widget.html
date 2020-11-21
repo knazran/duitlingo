@@ -2,11 +2,9 @@
     <!-- <svg class="svg-icon" viewBox="0 0 20 20">
         <path d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"></path>
     </svg> -->
-    <div id='stocks-1' class='flex flex-col justify-between h-full overflow-y-scroll'>
+    <div id='stocks-1' class='flex flex-col justify-between h-full'>
         <div>
             <p class='text-xl font-bold'> Did the valuation change? </p>
-        <div>
-        <div>
             <p class='text-md text-gray-800 mb-2'> 
                 Did any analysts downgraded this stock from their previous recommendation?
             </p>
@@ -23,11 +21,9 @@
         </div>
     </div>
 
-    <div id='stocks-2' hidden class='flex flex-col justify-between h-full overflow-y-scroll'>
+    <div id='stocks-2' hidden class='flex flex-col justify-between h-full'>
         <div>
-            <p class='text-xl font-bold'> What are my options? </p>
-        <div>
-        <div>
+            <p class='text-xl font-bold mb-4'> What are my options? </p>
             <p class='text-md font-semibold text-gray-800 mb-2'> 
                 (A) Keep / Buy more 
             </p>
@@ -64,6 +60,10 @@
         $("#stocks-2").attr("hidden",false);
     });
 
+    $("#goto-more-learning" ).click(function() {
+        window.location.href = "https://www.bursamarketplace.com/index.php";
+    });
+
     $(document).ready(function(){
         var $container = $("html,body");
         var $scrollTo = $('.subTab');
@@ -73,7 +73,37 @@
         setTimeout(function(){
             $("#dl-widget").attr("hidden",false);
         }, 1000)
+
+        setTimeout(function(){
+            $('div[name="analyst_main_mean_show"]').append('<span class="ml-4 text-red-500 animate-pulse" style="font-size:18px"> RM 0.600 </span>')
+            $('div[name="analyst_main_gl_show"]').append('<span class="ml-4 text-red-500 animate-pulse" style="font-size:18px"> -20.00% </span>')
+            $('div[name="analyst_main_diff_show"]').append('<span class="ml-4 text-red-500 animate-pulse" style="font-size:18px"> RM 0.15 </span>')
+            $('div[name="analyst_main_hp_show"]').append('<span class="ml-4 text-red-500 animate-pulse" style="font-size:18px"> RM 0.600 </span>')
+            $('div[name="analyst_main_lp_show"]').append('<span class="ml-4 text-red-500 animate-pulse" style="font-size:18px"> RM 0.600 </span>')
+        }, 3000)
         
     })
+
+    // const targetNode = document.getElementsByName('analyst_main_mean_show');
+    // console.log(targetNode)
+    // // Options for the observer (which mutations to observe)
+    // const config = { childList: true};
+
+    // // Callback function to execute when mutations are observed
+    // const callback = function(mutationsList, observer) {
+    //     // Use traditional 'for loops' for IE 11
+    //     for(const mutation of mutationsList) {
+    //         console.log(mutation)
+    //         $(mutation.target.innerHTML).each(function(idx, tr){
+    //             $('div[name="analyst_main_mean_show"]').append('<p class="ml-4 text-xl text-red-500 inline"> RM 0.600 </p>')
+    //         })
+
+    //     }
+    // };
+    // // Create an observer instance linked to the callback function
+    // var observer = new MutationObserver(callback);
+
+    // // Start observing the target node for configured mutations
+    // observer.observe(targetNode, config);
     
 </script>
