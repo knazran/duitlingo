@@ -50,6 +50,10 @@ $(document).ready(function(){
         renderWidget("html/analyst_widget.html")
     }
     
+    if (currentUrl === "https://www.bursamarketplace.com/mkt/themarket/stock/GENM"){
+        console.log("render genm stocks")
+        renderWidget("html/stocks_explain.html")
+    }
 });
 
 function renderWidget(htmlTemplate){

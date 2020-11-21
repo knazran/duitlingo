@@ -1,0 +1,178 @@
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<div id='dl-widget' class="duitlingo-widget-body rounded-lg">
+    <div id='stocks-1' class='flex flex-col justify-between h-full overflow-y-scroll'>
+        <div>
+            <p class='text-xl font-bold'> Details of Stock (1/2) </p>
+        <div>
+            <p class='text-md text-gray-800 mb-2'> 
+                This is the overview of the stock.
+            </p>
+            <p class='text-md text-gray-800 mb-2'> 
+                Here you can see the Analyst Consensus on this stock. This represents the general view of the analysts on the future performance of this stock.
+            </p>
+            <p class='text-md text-gray-800 mb-2'> 
+                Besides, there is a scoring on the company done by Alpha Indicator based on different aspects such as earning, risk, fundamental etc.
+            </p>
+            <p class='text-md text-gray-800 mb-2'> 
+                Don’t worry if you don’t understand these terms, you would learn more about these as we progress. &#128512;
+            </p>
+        </div>
+        <div class="mb-2">
+            <button id='goto-detail-stock' class='w-full py-2 rounded-full bg-green-500 text-center text-white'> Next </button>
+        </div>
+        </div>
+    </div>
+
+    <div id='stocks-2' hidden class='flex flex-col justify-between h-full overflow-y-scroll'>
+        <div>
+            <p class='text-xl font-bold'> Details of Stock (2/2) </p>
+        <div>
+            <p class='text-md text-gray-800 mb-2'> 
+                You can view more details on each of the highlighted tabs.
+            </p>
+            <p class='text-md text-gray-800 mb-2'> 
+                Hover over the bubbles to see what each tab contains.
+            </p>
+        </div>
+        <div class="mb-2">
+            <button id='goto-where-to-learn' class='w-full py-2 rounded-full bg-green-500 text-center text-white'> Where can I learn more? </button>
+        </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    
+    $("#goto-detail-stock" ).click(function() {
+        $("#stocks-1").attr("hidden",true);
+        $("#stocks-2").attr("hidden",false);
+        $('.ana').removeClass("border-4 border-indigo-600");
+        $('.alf').removeClass("border-4 border-indigo-600");
+
+        
+        var $container = $("html,body");
+        var $scrollTo = $('.topPnl');
+
+        $container.animate({scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop() + 560, scrollLeft: 0},1000);
+        
+        //hover on profile
+        $("a:contains(Profile)").addClass('bg-blue-200 px-2 py-1 rounded-lg');
+        $("a:contains(Profile)").mouseover(function() {
+            if ($('#hover-1').length < 1) {
+                $(".subTab").append('<div id="hover-1" class="ml-24 float-left text-center bg-blue-500 text-white p-2 text-md w-80">'+
+                    'What businesses the company does & its management'+
+                    '</div>');
+            }
+        });
+        $("a:contains(Profile)").mouseout(function() {
+            $('#hover-1').remove();
+        });
+
+        //hover on chart
+        $("a:contains(Chart)").addClass('bg-blue-200 px-2 py-1 rounded-lg');
+        $("a:contains(Chart)").mouseover(function() {
+            if ($('#hover-2').length < 1) {
+                $(".subTab").append('<div id="hover-2" class="ml-24 float-left text-center bg-blue-500 text-white p-2 text-md w-80">'+
+                    'Historical price chart with analytical tools'+
+                    '</div>');
+            }
+        });
+        $("a:contains(Chart)").mouseout(function() {
+            $('#hover-2').remove();
+        });
+
+        //hover on Analyst Consensus
+        $("a:contains(Analyst Consensus)").addClass('bg-blue-200 px-2 py-1 rounded-lg');
+        $("a:contains(Analyst Consensus)").mouseover(function() {
+            if ($('#hover-3').length < 1) {
+                $(".subTab").append('<div id="hover-3" class="ml-24 float-left text-center bg-blue-500 text-white p-2 text-md w-80">'+
+                    'Analysts’ estimation on stock performance'+
+                    '</div>');
+            }
+        });
+        $("a:contains(Analyst Consensus)").mouseout(function() {
+            $('#hover-3').remove();
+        });
+
+        //hover on research
+        $("a:contains(Research)").addClass('bg-blue-200 px-2 py-1 rounded-lg');
+        $("a:contains(Research)").mouseover(function() {
+            if ($('#hover-4').length < 1) {
+                $(".subTab").append('<div id="hover-4" class="ml-24 float-left text-center bg-blue-500 text-white p-2 text-md w-80">'+
+                    'Collection of the analyst reports'+
+                    '</div>');
+            }
+        });
+        $("a:contains(Research)").mouseout(function() {
+            $('#hover-4').remove();
+        });
+
+        //hover on financials
+        $("a:contains(Financials)").addClass('bg-blue-200 px-2 py-1 rounded-lg');
+        $("a:contains(Financials)").mouseover(function() {
+            if ($('#hover-5').length < 1) {
+                $(".subTab").append('<div id="hover-5" class="ml-24 float-left text-center bg-blue-500 text-white p-2 text-md w-80">'+
+                    'Financial reports & financial ratios of the company'+
+                    '</div>');
+            }
+        });
+        $("a:contains(Financials)").mouseout(function() {
+            $('#hover-5').remove();
+        });
+
+        //hover on ownership
+        $("a:contains(Ownership)").addClass('bg-blue-200 px-2 py-1 rounded-lg');
+        $("a:contains(Ownership)").mouseover(function() {
+            if ($('#hover-6').length < 1) {
+                $(".subTab").append('<div id="hover-6" class="ml-24 float-left text-center bg-blue-500 text-white p-2 text-md w-80">'+
+                    'Top 10 Shareholders, insider holdings & ownership composition.'+
+                    '</div>');
+            }
+        });
+        $("a:contains(Ownership)").mouseout(function() {
+            $('#hover-6').remove();
+        });
+
+        //hover on warrants
+        $("a:contains(Warrants)").addClass('bg-blue-200 px-2 py-1 rounded-lg');
+        $("a:contains(Warrants)").mouseover(function() {
+            if ($('#hover-7').length < 1) {
+                $(".subTab").append('<div id="hover-7" class="ml-24 float-left text-center bg-blue-500 text-white p-2 text-md w-80">'+
+                    'List of warrants of this stock'+
+                    '</div>');
+            }
+        });
+        $("a:contains(Warrants)").mouseout(function() {
+            $('#hover-7').remove();
+        });
+        
+        //hover on news
+        $("a:contains(News)").addClass('bg-blue-200 px-2 py-1 rounded-lg');
+        $("a:contains(News)").mouseover(function() {
+            if ($('#hover-8').length < 1) {
+                $(".subTab").append('<div id="hover-8" class="ml-24 float-left text-center bg-blue-500 text-white p-2 text-md w-80">'+
+                    'Public announcements & news related to the company'+
+                    '</div>');
+            }
+        });
+        $("a:contains(News)").mouseout(function() {
+            $('#hover-8').remove();
+        });
+    });
+
+    $("#goto-where-to-learn" ).click(function() {
+        $("#stocks-1").attr("hidden",true);
+        $("#stocks-2").attr("hidden",true);
+
+        window.location.href = "https://www.bursamarketplace.com/mkt/learn";
+        $(".duitlingo-widget-body").attr("hidden",true);
+
+    });
+
+
+    $(document).ready(function(){
+        $('.ana').addClass("bg-blue-200 animate-pulse");
+        $('.alf').addClass("bg-blue-300 animate-pulse");   
+    })
+    
+</script>
