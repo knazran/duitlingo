@@ -10,6 +10,9 @@
     box-shadow: 0px 16px 16px rgba(0, 0, 0, 0.25) !important;
     border-radius: 15px !important;
     padding: 1.5rem;
+    overflow: hidden;
+    transition: max-height 1s ease-in;
+    max-height: 2000px;
 
     /* background: linear-gradient(90deg, #496AE2 0%, #5F9AF3 62.99%, #6FBEFF 86.48%); */
 }
@@ -96,6 +99,15 @@
 
 .background-gradient-accent-1{
   background: linear-gradient(90deg, #496AE2 0%, #5F9AF3 60%, #6FBEFF 90.48%);
+}
+
+.dl-slider {
+  transform: translateX(100%);
+  transition: transform ease-out 0.5s;
+}
+
+.dl-slider.is-open {
+  transform: translateX(0);
 }
 
 

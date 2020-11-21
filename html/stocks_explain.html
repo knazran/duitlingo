@@ -23,7 +23,7 @@
         </div>
     </div>
 
-    <div id='stocks-2' hidden class='flex flex-col justify-between h-full overflow-y-scroll'>
+    <div id='stocks-2' hidden class='flex flex-col justify-between h-full overflow-y-scroll dl-slider'>
         <div>
             <div id='image-bull' class='w-3/5 mb-4 mx-auto'></div>
             <h2 class='text-xl font-bold  blue-accent-5'> Details of Stock (2/2) </h2>
@@ -51,6 +51,9 @@
     $("#goto-detail-stock" ).click(function() {
         $("#stocks-1").attr("hidden",true);
         $("#stocks-2").attr("hidden",false);
+        $('#stocks-2').outerHeight();
+        // Trigger our CSS transition
+        $('#stocks-2').addClass('is-open');
         $('.ana').removeClass("border-4 border-indigo-600");
         $('.alf').removeClass("border-4 border-indigo-600");
 

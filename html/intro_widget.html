@@ -21,7 +21,7 @@
         </div>
     </div>
 
-    <div id='second-intro' hidden class='flex flex-col justify-between h-full'>
+    <div id='second-intro' hidden class='flex flex-col justify-between h-full dl-slider'>
         <div>
             <div id='image-bull-2' class='w-4/5 mx-auto'></div>
             <div class='text-lg text-gray-700 my-4 text-center'>
@@ -55,7 +55,7 @@
         </div> 
     </div>
 
-    <div id='stock-questions' hidden class='flex flex-col justify-between h-full'>
+    <div id='stock-questions' hidden class='flex flex-col justify-between h-full dl-slider'>
         <div>
             <h3 class='text-xl font-bold mb-4 pt-0 blue-accent-5 '> Personalizing Your Experience</h3>
             <div class='text-lg text-gray-700 mb-4'>
@@ -74,7 +74,7 @@
         </div>  -->
     </div>
     
-    <div id='dl-learn-more' hidden class='flex flex-col justify-between h-full overflow-y-scroll'>
+    <div id='dl-learn-more' hidden class='flex flex-col justify-between h-full overflow-y-scroll dl-slider'>
         <div>
             <p class='font-bold mb-4' style="font-size:42px"> What Do You Want to Learn? </p>
 
@@ -96,9 +96,18 @@
 <script>
 
     $( "#dl-intro-next" ).click(function() {
-        $("#dl-overlay").attr("hidden",true);
+        // $("#dl-overlay").attr("hidden",true);
+        $( "#dl-overlay" ).fadeOut(500, function() {
+            // Animation complete
+        });
         $("#first-intro").attr("hidden",true);
+
         $("#second-intro").attr("hidden",false);
+        $('#second-intro').outerHeight();
+        // Trigger our CSS transition
+        $('#second-intro').addClass('is-open');
+        
+        
         $(".duitlingo-widget-body").attr("style","height:auto");
 
     });
@@ -301,7 +310,11 @@
         $("#goto-button-5").attr("hidden",true);
         $("#goto-button-6").attr("hidden",true);
         $("#goto-button-7").attr("hidden",true);
+
         $("#stock-questions").attr("hidden",false);
+        $('#stock-questions').outerHeight();
+        // Trigger our CSS transition
+        $('#stock-questions').addClass('is-open');
 
         $("a.mltBTN").removeClass("bg-blue-200 animate-pulse");
         $("#overlay_mltBTN").remove();

@@ -19,7 +19,7 @@
                     <button id='next-explain-stock' class='w-full py-2 text-lg rounded-full background-blue-accent-4 text-center text-white'> Next </button>
                 </div>
             </div>
-            <div id='explain-stock-2' hidden>
+            <div id='explain-stock-2' hidden class="dl-slider">
                 <p class='text-md font-semibold text-gray-800 mt-8'> 
                     Imagine this:
                 </p>
@@ -65,7 +65,7 @@
     </div>
     
 
-    <div id='stocks-2' hidden class='flex flex-col justify-between h-full overflow-y-scroll'>
+    <div id='stocks-2' hidden class='flex flex-col justify-between h-full overflow-y-scroll dl-slider'>
         <div>
             <h2 class='text-xl font-bold mb-4 my-4 blue-accent-5'> Stock trading 101 </h2>
             <div class='text-md text-gray-800 my-8'> 
@@ -87,7 +87,7 @@
             <button id='goto-stock-2' class='w-full py-2 rounded-full text-lg background-blue-accent-4 text-center text-white'> How much do shares cost? </button>
         </div>
     </div>
-    <div id='stocks-3' hidden class='flex flex-col justify-between h-full overflow-y-scroll'>
+    <div id='stocks-3' hidden class='flex flex-col justify-between h-full overflow-y-scroll dl-slider'>
         <div>
             <h2 class='text-xl font-bold mb-4 blue-accent-5'> Trading Price </h2>
             <div class='text-md text-gray-800 my-8'> 
@@ -106,7 +106,7 @@
             <button id='goto-stock-3' class='w-full py-2 rounded-full text-lg background-blue-accent-4 text-center text-white'> What determine the price? </button>
         </div>
     </div>
-    <div id='stocks-4' hidden class='flex flex-col justify-between h-full overflow-y-scroll'>
+    <div id='stocks-4' hidden class='flex flex-col justify-between h-full overflow-y-scroll dl-slider'>
         <div>
             <h2 class='text-xl font-bold mb-4 blue-accent-5'> Trading Price </h2>
             <div class='text-md text-gray-800 mb-2'> 
@@ -139,11 +139,19 @@
     $("#next-explain-stock").click(function() {
         $("#explain-stock-1").attr("hidden",true);
         $("#explain-stock-2").attr("hidden",false);
+        $('#explain-stock-2').outerHeight();
+        // Trigger our CSS transition
+        $('#explain-stock-2').addClass('is-open');
     })
 
     $( "#goto-stock-1" ).click(function() {
         $("#stocks-1").attr("hidden",true);
+
         $("#stocks-2").attr("hidden",false);
+        $('#stocks-2').outerHeight();
+        // Trigger our CSS transition
+        $('#stocks-2').addClass('is-open');
+
         $("#stocks-3").attr("hidden",true);
         $("#stocks-4").attr("hidden",true);
         $(".duitlingo-widget-body").attr("style","height:auto");
@@ -158,7 +166,12 @@
     $( "#goto-stock-2" ).click(function() {
         $("#stocks-1").attr("hidden",true);
         $("#stocks-2").attr("hidden",true);
+
         $("#stocks-3").attr("hidden",false);
+        $('#stocks-3').outerHeight();
+        // Trigger our CSS transition
+        $('#stocks-3').addClass('is-open');
+
         $("#stocks-4").attr("hidden",true);
 
         $('div[name ="name"] > span').removeClass("border-4 border-indigo-600");
@@ -290,7 +303,11 @@
         $("#stocks-1").attr("hidden",true);
         $("#stocks-2").attr("hidden",true);
         $("#stocks-3").attr("hidden",true);
+
         $("#stocks-4").attr("hidden",false);
+        $('#stocks-4').outerHeight();
+        // Trigger our CSS transition
+        $('#stocks-4').addClass('is-open');
         
         $(".tb_price > .active").removeClass("border-4 border-indigo-600");
         $(".tb_close > .active").removeClass("border-4 border-indigo-600");

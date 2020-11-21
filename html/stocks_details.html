@@ -25,7 +25,7 @@
                 <button id='goto-what-do-i-do' class='w-full py-2 rounded-full text-lg background-blue-accent-4 text-center text-white'> What Should I Do? </button>
             </div>
         </div>
-        <div id='what-can-i-do' hidden>
+        <div id='what-can-i-do' hidden class="dl-slider">
             <div class="my-8">
                 <h3 class='text-xl font-bold mb-8 pt-0 blue-accent-5 text-center '> So, what might have caused a dip in stock price?</h3>
                 <p class='text-md text-gray-800 mb-2'> 
@@ -53,6 +53,9 @@
     $("#goto-what-do-i-do" ).click(function() {
         $("#what-caused-dip").attr('hidden',true);
         $("#what-can-i-do").attr('hidden',false);
+        $('#what-can-i-do').outerHeight();
+        // Trigger our CSS transition
+        $('#what-can-i-do').addClass('is-open');
         // window.location.href = "https://www.bursamarketplace.com/mlt/myportfolio";
 
         $("a:contains(Analyst Consensus)").addClass('bg-yellow-200 px-2 py-1 rounded-lg')

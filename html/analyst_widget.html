@@ -21,7 +21,7 @@
         </div>
     </div>
 
-    <div id='stocks-2' hidden class='flex flex-col justify-between h-full'>
+    <div id='stocks-2' hidden class='flex flex-col justify-between h-full dl-slider'>
         <div id='image-bull' class='w-3/5 mb-4 mx-auto'></div>
         <h3 class='text-xl font-bold pt-0 blue-accent-5 text-left '> What are my options?</h3>
         <div class='mt-4 mb-8'>
@@ -53,6 +53,9 @@
     $("#goto-what-do-i-do" ).click(function() {
         $("#stocks-1").attr("hidden",true);
         $("#stocks-2").attr("hidden",false);
+        $('#stocks-2').outerHeight();
+        // Trigger our CSS transition
+        $('#stocks-2').addClass('is-open');
     });
 
     $("#goto-more-learning" ).click(function() {
@@ -63,7 +66,7 @@
         var $container = $("html,body");
         var $scrollTo = $('.subTab');
 
-        $container.animate({scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop(), scrollLeft: 0},1000);
+        $container.animate({scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop() - 200, scrollLeft: 0},1000);
         
         setTimeout(function(){
             $("#dl-widget").attr("hidden",false);
