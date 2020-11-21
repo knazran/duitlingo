@@ -38,6 +38,12 @@
             </div>
         </div>
         <div class="mb-2">
+            <button id='goto-button-1' class='w-full py-2 rounded-full bg-green-500 text-center text-white'>button 1</button>
+            <button id='goto-button-2' class='w-full py-2 rounded-full bg-green-500 text-center text-white'>button 2</button>
+            <button id='goto-button-3' class='w-full py-2 rounded-full bg-green-500 text-center text-white'>button 3</button>
+            <button id='goto-button-4' class='w-full py-2 rounded-full bg-green-500 text-center text-white'>button 4</button>
+            <button id='goto-button-5' class='w-full py-2 rounded-full bg-green-500 text-center text-white'>button 5</button>
+            <button id='goto-button-6' class='w-full py-2 rounded-full bg-green-500 text-center text-white'>button 6</button>
             <button id='goto-stocks-questions' class='w-full py-2 rounded-full bg-green-500 text-center text-white'> Done Looking Around</button>
         </div> 
     </div>
@@ -72,15 +78,127 @@
     $( "#goto-features-next" ).click(function() {
         $("#second-intro").attr("hidden",true);
         $("#features-1").attr("hidden",false);
+        $("#goto-button-1").attr("hidden",false);
+        $("#goto-button-2").attr("hidden",true);
+        $("#goto-button-3").attr("hidden",true);
+        $("#goto-button-4").attr("hidden",true);
+        $("#goto-button-5").attr("hidden",true);
+        $("#goto-button-6").attr("hidden",true);
+        $("#goto-stocks-questions").attr("hidden",true);
 
-        $("a.nav_learn").addClass("bg-blue-200 animate-pulse")
+
+        $("a.nav_learn").addClass("bg-blue-200 animate-pulse");
+        $("body").append('<div id="overlay_learn" class="w-full h-full fixed block top-0 left-0 bg-black opacity-80 z-50"><span class="text-white top-1/2 my-0 mx-auto block relative w-0 h-0" style="top: 20%">type something here</span></div>');
+    });
+
+    $( "#goto-button-1" ).click(function() {
+        $("#features-1").attr("hidden",false);
+        $("#goto-button-1").attr("hidden",true);
+        $("#goto-button-2").attr("hidden",false);
+        $("#goto-button-3").attr("hidden",true);
+        $("#goto-button-4").attr("hidden",true);
+        $("#goto-button-5").attr("hidden",true);
+        $("#goto-button-6").attr("hidden",true);
+        $("#goto-stocks-questions").attr("hidden",true);
+
+        $("a.nav_learn").removeClass("bg-blue-200 animate-pulse");
+        $("#overlay_learn").remove();
+        $("a.nav_games").addClass("bg-blue-200 animate-pulse");
+        $("body").append('<div id="overlay_games" class="w-full h-full fixed block top-0 left-0 bg-black opacity-80 z-50"><span class="text-white top-1/2 my-0 mx-auto block relative w-0 h-0" style="top: 20%">this is game</span></div>');
+    });
+ 
+    $( "#goto-button-2" ).click(function() {
+        $("#features-1").attr("hidden",false);
+        $("#goto-button-1").attr("hidden",true);
+        $("#goto-button-2").attr("hidden",true);
+        $("#goto-button-3").attr("hidden",false);
+        $("#goto-button-4").attr("hidden",true);
+        $("#goto-button-5").attr("hidden",true);
+        $("#goto-button-6").attr("hidden",true);
+        $("#goto-stocks-questions").attr("hidden",true);
+
+        $("a.nav_games").removeClass("bg-blue-200 animate-pulse");
+        $("#overlay_games").remove();
+        $("a.nav_themkt").addClass("bg-blue-200 animate-pulse");
+        $("body").append('<div id="overlay_market" class="w-full h-full fixed block top-0 left-0 bg-black opacity-80 z-50"><span class="text-white top-1/2 my-0 mx-auto block relative w-0 h-0" style="top: 20%">this is market</span></div>');
+    });
+
+    $( "#goto-button-3" ).click(function() {
+        $("#features-1").attr("hidden",false);
+        $("#goto-button-1").attr("hidden",true);
+        $("#goto-button-2").attr("hidden",true);
+        $("#goto-button-3").attr("hidden",true);
+        $("#goto-button-4").attr("hidden",false);
+        $("#goto-button-5").attr("hidden",true);
+        $("#goto-button-6").attr("hidden",true);
+        $("#goto-stocks-questions").attr("hidden",true);
+
+        $("a.nav_themkt").removeClass("bg-blue-200 animate-pulse");
+        $("#overlay_market").remove();
+        $("a.nav_tool").addClass("bg-blue-200 animate-pulse");
+        $("body").append('<div id="overlay_tool" class="w-full h-full fixed block top-0 left-0 bg-black opacity-80 z-50"><span class="text-white top-1/2 my-0 mx-auto block relative w-0 h-0" style="top: 20%">this is tools</span></div>');
+    });
+
+    $( "#goto-button-4" ).click(function() {
+        $("#features-1").attr("hidden",false);
+        $("#goto-button-1").attr("hidden",true);
+        $("#goto-button-2").attr("hidden",true);
+        $("#goto-button-3").attr("hidden",true);
+        $("#goto-button-4").attr("hidden",true);
+        $("#goto-button-5").attr("hidden",false);
+        $("#goto-button-6").attr("hidden",true);
+        $("#goto-stocks-questions").attr("hidden",true);
+
+        $("a.nav_tool").removeClass("bg-blue-200 animate-pulse");
+        $("#overlay_tool").remove();
+        $("a.nav_event").addClass("bg-blue-200 animate-pulse");
+        $("body").append('<div id="overlay_event" class="w-full h-full fixed block top-0 left-0 bg-black opacity-80 z-50"><span class="text-white top-1/2 my-0 mx-auto block relative w-0 h-0" style="top: 20%">this is event</span></div>');
+    });
+
+    $( "#goto-button-5" ).click(function() {
+        $("#features-1").attr("hidden",false);
+        $("#goto-button-1").attr("hidden",true);
+        $("#goto-button-2").attr("hidden",true);
+        $("#goto-button-3").attr("hidden",true);
+        $("#goto-button-4").attr("hidden",true);
+        $("#goto-button-5").attr("hidden",true);
+        $("#goto-button-6").attr("hidden",false);
+        $("#goto-stocks-questions").attr("hidden",true);
+
+        $("a.nav_event").removeClass("bg-blue-200 animate-pulse");
+        $("#overlay_event").remove();
+        $("a.nav_mymkt").addClass("bg-blue-200 animate-pulse");
+        $("body").append('<div id="overlay_mymkt" class="w-full h-full fixed block top-0 left-0 bg-black opacity-80 z-50"><span class="text-white top-1/2 my-0 mx-auto block relative w-0 h-0" style="top: 20%">this is my market</span></div>');
+    });
+
+    $( "#goto-button-6" ).click(function() {
+        $("#features-1").attr("hidden",false);
+        $("#goto-button-1").attr("hidden",true);
+        $("#goto-button-2").attr("hidden",true);
+        $("#goto-button-3").attr("hidden",true);
+        $("#goto-button-4").attr("hidden",true);
+        $("#goto-button-5").attr("hidden",true);
+        $("#goto-button-6").attr("hidden",true);
+        $("#goto-stocks-questions").attr("hidden",false);
+
+        $("a.nav_mymkt").removeClass("bg-blue-200 animate-pulse");
+        $("#overlay_mymkt").remove();
+        $("a.mltBTN").addClass("bg-blue-200 animate-pulse");
+        $("body").append('<div id="overlay_mltBTN" class="w-full h-full fixed block top-0 left-0 bg-black opacity-80 z-50"><span class="text-white top-1/2 my-0 mx-auto block relative w-0 h-0" style="top: 20%">mirroring</span></div>');
     });
 
     $( "#goto-stocks-questions" ).click(function() {
         $("#features-1").attr("hidden",true);
+        $("#goto-button-1").attr("hidden",true);
+        $("#goto-button-2").attr("hidden",true);
+        $("#goto-button-3").attr("hidden",true);
+        $("#goto-button-4").attr("hidden",true);
+        $("#goto-button-5").attr("hidden",true);
+        $("#goto-button-6").attr("hidden",true);
         $("#stock-questions").attr("hidden",false);
 
-        $("a.nav_learn").addClass("bg-blue-200 animate-pulse")
+        $("a.mltBTN").removeClass("bg-blue-200 animate-pulse");
+        $("#overlay_mltBTN").remove();
     });
 
     $("#goto-stocks1" ).click(function() {
@@ -96,3 +214,5 @@
         window.location.href = "https://www.bursamarketplace.com/mkt/themarket/stock";
     });
 </script>
+
+
