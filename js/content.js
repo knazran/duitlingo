@@ -5,7 +5,10 @@ $(document).ready(function(){
     if (currentUrl === "https://www.bursamarketplace.com/"){
         $("div.sectionTitle").text("Duitlingo!");
 
-        renderWidget("html/intro_widget.html")
+        renderWidget("html/intro_widget.html");
+        var bull_img = chrome.extension.getURL('assets/MrBull.png')
+        console.log(bull_img)
+        $('#image-bull').append(`<img src="${bull_img}" alt="thebull">`)
         // if ( $( "#dl-side-widget" ).length < 1) {
     
         //     $("body").append("<div id='dl-side-widget'></div>");
