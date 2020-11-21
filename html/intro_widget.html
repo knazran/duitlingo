@@ -5,28 +5,27 @@
     <div id='first-intro' class='flex flex-col justify-between h-full'>
         <div>
             <p class='text-xl font-bold mb-4'> Welcome to Bursa Marketplace! </p>
-            <p class='text-md text-gray-800 mb-4'> I am Billy and I will guide you as take your first step to invest in stocks. </p>
+            <div class='text-md text-gray-800 mb-4'>
+                <p > Hi Hensem! Hi Cantik!</p>
+                <p > I am Billy the bull and I will guide you on your journey to invest in stocks.</p>
+                <p class='mt-2' > Do you need me to show you around?</p>
+            </div>
         </div>
+        <!-- <div><img src=thebull alt="thebull"></div> -->
         <div class="mb-2">
-            <button id='dl-intro-next' class='w-full py-2 rounded-full bg-green-500 text-center text-white'> Next</button>
+            <button id='dl-intro-next' class='w-full py-2 rounded-full bg-green-500 text-center text-white'> Yes, tell me more about Bursa Marketplace </button>
         </div>
     </div>
 
     <div id='second-intro' hidden class='flex flex-col justify-between h-full'>
         <div>
-            <p class='text-xl font-bold mb-4'> Nice to meet you, Hensem! </p>
             <div class='text-md text-gray-800 mb-4'>
-                <p > Bursa Marketplace is a... </p>
-                <ul>
-                    <li>Education</li>
-                    <li>Copy Trading</li>
-                    <li>Stock Info</li>
-                </ul>
-                <p class='mt-2' > Let me show you some of the key functionalities </p>
+                <p > Bursa Marketplace (MKTPLC) provides all the information and relevant tools for you to begin your investing journey.</p>
+                <p class='mt-2' > Now, let me show you some key features on the Bursa MKTPLC platform. </p>
             </div>
         </div>
         <div class="mb-2">
-            <button id='goto-features-next' class='w-full py-2 rounded-full bg-green-500 text-center text-white'> Let's Go!</button>
+            <button id='goto-features-next' class='w-full py-2 rounded-full bg-green-500 text-center text-white'> Let's Go </button>
         </div>
     </div>
 
@@ -38,12 +37,13 @@
             </div>
         </div>
         <div class="mb-2">
-            <button id='goto-button-1' class='w-full py-2 rounded-full bg-green-500 text-center text-white'>button 1</button>
-            <button id='goto-button-2' class='w-full py-2 rounded-full bg-green-500 text-center text-white'>button 2</button>
-            <button id='goto-button-3' class='w-full py-2 rounded-full bg-green-500 text-center text-white'>button 3</button>
-            <button id='goto-button-4' class='w-full py-2 rounded-full bg-green-500 text-center text-white'>button 4</button>
-            <button id='goto-button-5' class='w-full py-2 rounded-full bg-green-500 text-center text-white'>button 5</button>
-            <button id='goto-button-6' class='w-full py-2 rounded-full bg-green-500 text-center text-white'>button 6</button>
+            <button id='goto-button-1' class='w-full py-2 rounded-full bg-green-500 text-center text-white'>Next</button>
+            <button id='goto-button-2' class='w-full py-2 rounded-full bg-green-500 text-center text-white'>Next</button>
+            <button id='goto-button-3' class='w-full py-2 rounded-full bg-green-500 text-center text-white'>Next</button>
+            <button id='goto-button-4' class='w-full py-2 rounded-full bg-green-500 text-center text-white'>Next</button>
+            <button id='goto-button-5' class='w-full py-2 rounded-full bg-green-500 text-center text-white'>Next</button>
+            <button id='goto-button-6' class='w-full py-2 rounded-full bg-green-500 text-center text-white'>Next</button>
+            <button id='goto-button-7' class='w-full py-2 rounded-full bg-green-500 text-center text-white'>Next</button>
             <button id='goto-stocks-questions' class='w-full py-2 rounded-full bg-green-500 text-center text-white'> Done Looking Around</button>
         </div> 
     </div>
@@ -73,6 +73,7 @@
     $( "#dl-intro-next" ).click(function() {
         $("#first-intro").attr("hidden",true);
         $("#second-intro").attr("hidden",false);
+
     });
 
     $( "#goto-features-next" ).click(function() {
@@ -84,11 +85,18 @@
         $("#goto-button-4").attr("hidden",true);
         $("#goto-button-5").attr("hidden",true);
         $("#goto-button-6").attr("hidden",true);
+        $("#goto-button-7").attr("hidden",true);
         $("#goto-stocks-questions").attr("hidden",true);
 
-
         $("a.nav_learn").addClass("bg-blue-200 animate-pulse");
-        $("body").append('<div id="overlay_learn" class="w-full h-full fixed block top-0 left-0 bg-black opacity-80 z-50"><span class="text-white top-1/2 my-0 mx-auto block relative w-0 h-0" style="top: 20%">type something here</span></div>');
+        $("body").append('<div id="overlay_learn" class="w-full h-full fixed block top-0 left-0 bg-black opacity-80 z-50">'+
+            '<span class="text-white my-auto mx-auto block relative" style="top: 20%; left:15%">'+
+                '<p class="text-xl font-bold mb-4 ml-8"> 1) Learn about investing</p>'+
+                '<p class="text-xl mb-4 ml-8"> Here, you can get all the learning resources to start your investment journey, including:</p>'+
+                '<p class="text-base mb-4 ml-8"> • Comprehensive guide on investment fundementals via Bursa Academy and Bursa Classroom</p>'+
+                '<p class="text-base mb-4 ml-8"> •Step by step guide on how to create your investment portfolio for stocks and futures</p>'+
+            '</span>'+
+        '</div>');
     });
 
     $( "#goto-button-1" ).click(function() {
@@ -99,12 +107,18 @@
         $("#goto-button-4").attr("hidden",true);
         $("#goto-button-5").attr("hidden",true);
         $("#goto-button-6").attr("hidden",true);
+        $("#goto-button-7").attr("hidden",true);
         $("#goto-stocks-questions").attr("hidden",true);
 
         $("a.nav_learn").removeClass("bg-blue-200 animate-pulse");
         $("#overlay_learn").remove();
         $("a.nav_games").addClass("bg-blue-200 animate-pulse");
-        $("body").append('<div id="overlay_games" class="w-full h-full fixed block top-0 left-0 bg-black opacity-80 z-50"><span class="text-white top-1/2 my-0 mx-auto block relative w-0 h-0" style="top: 20%">this is game</span></div>');
+        $("body").append('<div id="overlay_games" class="w-full h-full fixed block top-0 left-0 bg-black opacity-80 z-50">'+
+            '<span class="text-white my-auto mx-auto block relative" style="top: 20%; left:15%">'+
+                '<p class="text-xl font-bold mb-4 ml-8"> 2) Trading games to simulate the trading experience</p>'+
+                '<p class="text-xl mb-4 ml-8"> Put your skills to the test here by investing in the simulated stock market. </p>'+
+            '</span>'+
+        '</div>');
     });
  
     $( "#goto-button-2" ).click(function() {
@@ -115,12 +129,19 @@
         $("#goto-button-4").attr("hidden",true);
         $("#goto-button-5").attr("hidden",true);
         $("#goto-button-6").attr("hidden",true);
+        $("#goto-button-7").attr("hidden",true);
         $("#goto-stocks-questions").attr("hidden",true);
 
         $("a.nav_games").removeClass("bg-blue-200 animate-pulse");
         $("#overlay_games").remove();
         $("a.nav_themkt").addClass("bg-blue-200 animate-pulse");
-        $("body").append('<div id="overlay_market" class="w-full h-full fixed block top-0 left-0 bg-black opacity-80 z-50"><span class="text-white top-1/2 my-0 mx-auto block relative w-0 h-0" style="top: 20%">this is market</span></div>');
+        $("body").append('<div id="overlay_market" class="w-full h-full fixed block top-0 left-0 bg-black opacity-80 z-50">'+
+            '<span class="text-white my-auto mx-auto block relative" style="top: 20%; left:15%">'+
+                '<p class="text-xl font-bold mb-4 ml-8"> 3) Access real-time market data </p>'+
+                '<p class="text-xl mb-4 ml-8"> View real time infomation of securities listed on the Bursa exchange. </p>'+
+                '<p class="text-xl mb-4 ml-8"> This includes historical stock price, research reports, analysis from experts, financial data and more. </p>'+
+            '</span>'+
+        '</div>');
     });
 
     $( "#goto-button-3" ).click(function() {
@@ -131,12 +152,19 @@
         $("#goto-button-4").attr("hidden",false);
         $("#goto-button-5").attr("hidden",true);
         $("#goto-button-6").attr("hidden",true);
+        $("#goto-button-7").attr("hidden",true);
         $("#goto-stocks-questions").attr("hidden",true);
 
         $("a.nav_themkt").removeClass("bg-blue-200 animate-pulse");
         $("#overlay_market").remove();
         $("a.nav_tool").addClass("bg-blue-200 animate-pulse");
-        $("body").append('<div id="overlay_tool" class="w-full h-full fixed block top-0 left-0 bg-black opacity-80 z-50"><span class="text-white top-1/2 my-0 mx-auto block relative w-0 h-0" style="top: 20%">this is tools</span></div>');
+        $("body").append('<div id="overlay_tool" class="w-full h-full fixed block top-0 left-0 bg-black opacity-80 z-50">'+
+            '<span class="text-white my-auto mx-auto block relative" style="top: 20%; left:15%">'+
+                '<p class="text-xl font-bold mb-4 ml-8"> 4) Access to tools for market analysis </p>'+
+                '<p class="text-xl mb-4 ml-8"> Try out the tools that are used by expert investors to analyse the market. </p>'+
+                '<p class="text-xl mb-4 ml-8"> You can also learn more stock valuation and market outlook through events by our partner brokers. </p>'+
+            '</span>'+
+        '</div>');
     });
 
     $( "#goto-button-4" ).click(function() {
@@ -147,12 +175,19 @@
         $("#goto-button-4").attr("hidden",true);
         $("#goto-button-5").attr("hidden",false);
         $("#goto-button-6").attr("hidden",true);
+        $("#goto-button-7").attr("hidden",true);
         $("#goto-stocks-questions").attr("hidden",true);
 
         $("a.nav_tool").removeClass("bg-blue-200 animate-pulse");
         $("#overlay_tool").remove();
         $("a.nav_event").addClass("bg-blue-200 animate-pulse");
-        $("body").append('<div id="overlay_event" class="w-full h-full fixed block top-0 left-0 bg-black opacity-80 z-50"><span class="text-white top-1/2 my-0 mx-auto block relative w-0 h-0" style="top: 20%">this is event</span></div>');
+        $("body").append('<div id="overlay_event" class="w-full h-full fixed block top-0 left-0 bg-black opacity-80 z-50">'+
+            '<span class="text-white my-auto mx-auto block relative" style="top: 20%; left:15%">'+
+                '<p class="text-xl font-bold mb-4 ml-8"> 5) Upcoming events related to investment </p>'+
+                '<p class="text-xl mb-4 ml-8"> There are many events by Bursa and its partners that can help you in your investment journey. </p>'+
+                '<p class="text-xl mb-4 ml-8"> You can view all the upcoming events by Bursa and its partners here. </p>'+
+            '</span>'+
+        '</div>');
     });
 
     $( "#goto-button-5" ).click(function() {
@@ -163,12 +198,18 @@
         $("#goto-button-4").attr("hidden",true);
         $("#goto-button-5").attr("hidden",true);
         $("#goto-button-6").attr("hidden",false);
+        $("#goto-button-7").attr("hidden",true);
         $("#goto-stocks-questions").attr("hidden",true);
 
         $("a.nav_event").removeClass("bg-blue-200 animate-pulse");
         $("#overlay_event").remove();
         $("a.nav_mymkt").addClass("bg-blue-200 animate-pulse");
-        $("body").append('<div id="overlay_mymkt" class="w-full h-full fixed block top-0 left-0 bg-black opacity-80 z-50"><span class="text-white top-1/2 my-0 mx-auto block relative w-0 h-0" style="top: 20%">this is my market</span></div>');
+        $("body").append('<div id="overlay_mymkt" class="w-full h-full fixed block top-0 left-0 bg-black opacity-80 z-50">'+
+            '<span class="text-white my-auto mx-auto block relative" style="top: 20%; left:15%">'+
+                '<p class="text-xl font-bold mb-4 ml-8"> 6) Snapshot of your portfolio </p>'+
+                '<p class="text-xl mb-4 ml-8"> Here, you can view all the stocks that you have added to your watchlist and can keep track of investment portfolio. </p>'+
+            '</span>'+
+        '</div>');
     });
 
     $( "#goto-button-6" ).click(function() {
@@ -179,13 +220,43 @@
         $("#goto-button-4").attr("hidden",true);
         $("#goto-button-5").attr("hidden",true);
         $("#goto-button-6").attr("hidden",true);
-        $("#goto-stocks-questions").attr("hidden",false);
+        $("#goto-button-7").attr("hidden",false);
+        $("#goto-stocks-questions").attr("hidden",true);
 
         $("a.nav_mymkt").removeClass("bg-blue-200 animate-pulse");
         $("#overlay_mymkt").remove();
         $("a.mltBTN").addClass("bg-blue-200 animate-pulse");
-        $("body").append('<div id="overlay_mltBTN" class="w-full h-full fixed block top-0 left-0 bg-black opacity-80 z-50"><span class="text-white top-1/2 my-0 mx-auto block relative w-0 h-0" style="top: 20%">mirroring</span></div>');
+        $("body").append('<div id="overlay_mltBTN" class="w-full h-full fixed block top-0 left-0 bg-black opacity-80 z-50">'+
+            '<span class="text-white my-auto mx-auto block relative" style="top: 20%; left:15%">'+
+                '<p class="text-xl font-bold mb-4 ml-8"> 7) Learn from the experts by mirroring their portfolios </p>'+
+                '<p class="text-xl mb-4 ml-8"> You can access the Bursa MLT platform, a platform where you can see what stocks actual analysts buy and get advices from them. </p>'+
+                '<p class="text-xl mb-4 ml-8"> It is a good place for you to practice and learn before you enter the real market. </p>'+
+            '</span>'+
+        '</div>');
     });
+
+    $( "#goto-button-7" ).click(function() {
+        $("#features-1").attr("hidden",false);
+        $("#goto-button-1").attr("hidden",true);
+        $("#goto-button-2").attr("hidden",true);
+        $("#goto-button-3").attr("hidden",true);
+        $("#goto-button-4").attr("hidden",true);
+        $("#goto-button-5").attr("hidden",true);
+        $("#goto-button-6").attr("hidden",true);
+        $("#goto-button-7").attr("hidden",true);
+        $("#goto-stocks-questions").attr("hidden",false);
+
+        $("a.mltBTN").removeClass("bg-blue-200 animate-pulse");
+        $("#overlay_mltBTN").remove();
+        $("div.nav_itm.btn_search_cnt").addClass("bg-blue-200 animate-pulse");
+        $("body").append('<div id="overlay_search" class="w-full h-full fixed block top-0 left-0 bg-black opacity-80 z-50">'+
+            '<span class="text-white my-auto mx-auto block relative" style="top: 20%; left:15%">'+
+                '<p class="text-xl font-bold mb-4 ml-8"> 8) Search for Stocks </p>'+
+                '<p class="text-xl mb-4 ml-8"> You can use this search function to find a specific stock that you are interested in. </p>'+
+            '</span>'+
+        '</div>');
+    });
+
 
     $( "#goto-stocks-questions" ).click(function() {
         $("#features-1").attr("hidden",true);
@@ -195,10 +266,11 @@
         $("#goto-button-4").attr("hidden",true);
         $("#goto-button-5").attr("hidden",true);
         $("#goto-button-6").attr("hidden",true);
+        $("#goto-button-7").attr("hidden",true);
         $("#stock-questions").attr("hidden",false);
 
-        $("a.mltBTN").removeClass("bg-blue-200 animate-pulse");
-        $("#overlay_mltBTN").remove();
+        $("div.nav_itm.btn_search_cnt").removeClass("bg-blue-200 animate-pulse");
+        $("#overlay_search").remove();
     });
 
     $("#goto-stocks1" ).click(function() {
