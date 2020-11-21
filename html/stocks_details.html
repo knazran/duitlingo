@@ -1,35 +1,49 @@
 <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-<div id='dl-widget' hidden class="duitlingo-widget-body rounded-lg">
+<div id='dl-widget' hidden class="duitlingo-widget-body rounded-lg" style="height:auto">
     <!-- <svg class="svg-icon" viewBox="0 0 20 20">
         <path d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"></path>
     </svg> -->
-    <div id='stocks-1' class='flex flex-col justify-between h-full overflow-y-scroll'>
+    <div id='stocks-1' class='flex flex-col justify-between h-full'>
         <div>
-            <p class='text-xl font-bold'> So, what might have caused a dip in stock price? </p>
-            <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_yfnq6zia.json"  background="transparent"  speed="0.8"  style="width: 250px; height: 250px;" class='mx-auto'  loop  autoplay></lottie-player>        </div>
-        <div>
-            <p class='text-md text-gray-800 mb-2'> 
-                Often, a dip can be attributed to <strong class='font-bold'>market sentiment</strong>. 
-            </p>
-            <p class='text-md text-gray-800 mb-2'> 
-                Check out the <strong class='font-bold'>NEWS</strong>  tab to see if there any negative news surrounding the company.
-            </p>
-            <p class='text-md text-gray-800 mb-2'> 
-                Another reason could be <strong class='font-bold'>below-expectation performance of the company.</strong>. 
-                Check out the <strong class='font-bold'>analyst consensus</strong>, 
-                <strong class='font-bold'>research</strong>, or
-                <strong class='font-bold'>financials</strong> 
-                <!-- tab to see the current market valuation for MTAG Group Berhad. -->
-            </p>
-            <!-- <p class='text-md text-gray-800 mb-2'> 
-                Check out the <strong class='font-bold'>analyst consensus</strong>, 
-                <strong class='font-bold'>research</strong>, or
-                <strong class='font-bold'>financials</strong> tab to see the current market valuation for MTAG Group Berhad.
-            </p> -->
+            <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_yfnq6zia.json"  background="transparent"  speed="0.8"  style="width: 250px; height: 250px;" class='mx-auto'  loop  autoplay></lottie-player>        
+            
         </div>
-        <div class="mb-2">
-            <button id='goto-what-do-i-do' class='w-full py-2 rounded-full bg-green-500 text-center text-white'> What Should I Do? </button>
+        <div id='what-caused-dip'>
+            <div class="mb-12">
+                <h3 class='text-xl font-bold mb-8 pt-0 blue-accent-5 text-center '> So, what might have caused a dip in stock price?</h3>
+                <p class='text-md text-gray-800 mb-2'> 
+                    Often, a dip can be attributed to: 
+                </p>
+                <ol class='list-decimal'>
+                    <li><strong class='font-bold'>Negative market sentiment</strong></li>
+                    <li><strong class='font-bold'>Changes in fundamentals </strong></li>
+                    <li><strong class='font-bold'>External factors</strong></li>
+                </ol>
+                
+            </div>
+            <div class="mb-2">
+                <button id='goto-what-do-i-do' class='w-full py-2 rounded-full text-lg background-blue-accent-4 text-center text-white'> What Should I Do? </button>
+            </div>
         </div>
+        <div id='what-can-i-do' hidden>
+            <div class="my-8">
+                <h3 class='text-xl font-bold mb-8 pt-0 blue-accent-5 text-center '> So, what might have caused a dip in stock price?</h3>
+                <p class='text-md text-gray-800 mb-2'> 
+                    Maybe you can check out the <strong class='font-bold'>NEWS</strong> tab to see if there any news related to this stock or industry
+                </p>
+                <p class='text-md text-gray-800 mb-2'> 
+                    You can also check out the <strong class='font-bold'>analyst consensus</strong>, 
+                    <strong class='font-bold'>research</strong>, or
+                    <strong class='font-bold'>financials</strong> tab to see if there is any changes in fundamentals.
+                </p>
+            </div>
+            
+            <p class='text-lg text-center blue-accent-4 font-semibold'>Click on any of the highlighted tabs to see more details.</p>
+            <!-- <div class="mb-2">
+                <button id='goto-what-do-i-do' class='w-full py-2 rounded-full text-lg background-blue-accent-4 text-center text-white'> What Should I Do? </button>
+            </div> -->
+        </div>
+        
     </div>
     
 </div>
@@ -37,7 +51,23 @@
 <script>
     
     $("#goto-what-do-i-do" ).click(function() {
+        $("#what-caused-dip").attr('hidden',true);
+        $("#what-can-i-do").attr('hidden',false);
         // window.location.href = "https://www.bursamarketplace.com/mlt/myportfolio";
+
+        $("a:contains(Analyst Consensus)").addClass('bg-yellow-200 px-2 py-1 rounded-lg')
+        $("a:contains(Research)").addClass('bg-yellow-200 px-2 py-1 rounded-lg')
+        $("a:contains(Financials)").addClass('bg-yellow-200 px-2 py-1 rounded-lg')
+
+        $("a:contains(News)").addClass('background-blue-accent-1 px-2 py-1 rounded-lg')
+        
+        
+
+        $("li:contains(Research)").addClass('relative')
+        $("li:contains(Research)").append("<div class='duitlingo-widget-stock-tooltip p-2 text-sm font-normal text-center bg-yellow-200'> Check valuation of the company </div>")
+
+        $("li:contains(News)").addClass('relative')
+        $("li:contains(News)").append("<div class='duitlingo-widget-stock-tooltip p-2 text-sm font-normal text-center background-blue-accent-1'>Check market sentiment </div>")
     });
 
     $(document).ready(function(){
@@ -46,35 +76,7 @@
 
         $container.animate({scrollTop: $scrollTo.offset().top - $container.offset().top + $container.scrollTop() + 560, scrollLeft: 0},1000);
         
-        $("a:contains(Analyst Consensus)").addClass('bg-yellow-200 px-2 py-1 rounded-lg')
-        $("a:contains(Research)").addClass('bg-yellow-200 px-2 py-1 rounded-lg')
-        $("a:contains(Financials)").addClass('bg-yellow-200 px-2 py-1 rounded-lg')
-
-        $("a:contains(News)").addClass('bg-blue-200 px-2 py-1 rounded-lg')
         
-        
-
-        $("li:contains(Research)").addClass('relative')
-        $("li:contains(Research)").append("<div class='duitlingo-widget-stock-tooltip p-2 text-sm font-normal text-center bg-yellow-200 '> Check valuation of the company </div>")
-
-        $("li:contains(News)").addClass('relative')
-        // $("li:contains(News)").append(`<span class="flex absolute h-3 w-3 top-0 right-0 -mt-1 -mr-1">
-        //         <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
-        //         <span class="relative inline-flex rounded-full h-3 w-3 bg-purple-500"></span>
-        //     </span>`)
-        $("li:contains(News)").append("<div class='duitlingo-widget-stock-tooltip p-2 text-sm font-normal text-center bg-blue-200 '>Check market sentiment </div>")
-        // `<div class="flex justify-around">
-        //     <span class="relative inline-flex rounded-md shadow-sm">
-        //     <button type="button" class="inline-flex items-center px-4 py-2 border border-purple-400 text-base leading-6 font-medium rounded-md text-purple-800 bg-white hover:text-purple-700 focus:border-purple-300 transition ease-in-out duration-150">
-        //         Transactions
-        //     </button>
-        //     <span class="flex absolute h-3 w-3 top-0 right-0 -mt-1 -mr-1">
-        //         <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
-        //         <span class="relative inline-flex rounded-full h-3 w-3 bg-purple-500"></span>
-        //     </span>
-        //     </span>
-        // </div>`
-        // $("a:contains(News)").append("<span class='flex h-3 w-3'><span class='animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75'></span><span class='relative inline-flex rounded-full h-3 w-3 bg-purple-500'></span></span>")
         setTimeout(function(){
             $("#dl-widget").attr("hidden",false);
         }, 1000)
