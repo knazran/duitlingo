@@ -76,15 +76,37 @@
             <p class='text-md text-gray-800 mb-2'> 
                 In the contrary, if many people don’t think this business is good anymore and wanna sell off their ownership, then supply will be high and they will be willing to sell it at a lower and lower price.
             </p>
-            <p class='text-md text-gray-800 mb-2'> 
-                Next, let’s look at the details of each share. Click on the arrow below.
-            </p>
+        </div>
+        <div class="mb-2">
+            <button id='goto-stock-4' class='w-full py-2 rounded-full bg-green-500 text-center text-white'>  Next, let’s look at the details of each share. </button>
         </div>
         <!-- <div class="mb-2"> do something like auto play 
             <button id='goto-stock-3' class='w-full py-2 rounded-full bg-green-500 text-center text-white'> What determine the price? </button>
         </div> -->
     </div>
     <!-- <button id='goto-mlt' class='w-full py-2 rounded-full bg-green-500 text-center text-white'> Let's Get Those Benjamins 🤑🤑🤑🤑🤑 </button> -->
+    <div id='stocks-1-malay' hidden class='flex flex-col justify-between h-full overflow-y-scroll'>
+        <div>
+            <p class='text-xl font-bold mb-4'> Saham 101 </p>
+            <p class='text-md text-gray-800 mb-2'> 
+                Hensem, mungkin anda pernah terdengar atau terbaca mengenai saham sebelum ini - tetapi apa itu saham?
+            </p>
+            <p class='text-md text-gray-800 mb-2'> 
+                Saham itu merupakan satu unit permilikan sebuah syarikat atau bisnes.
+            </p>
+            <p class='text-md text-gray-800 mb-2'> 
+                Cuba bayangkan: Ali memilik sebuah restoran, tetapi beliau mahu membuka dua buah cawangan lagi.
+            </p>
+            <p class='text-md text-gray-800 mb-2'> 
+                Untuk membiayai kos pembukaan cawangan tersebut, Ali memberi 30% sher and permilkan bisnes restoran beliau kepada rakannya, Abu dan Ahmad. 
+                Abu dan Ahmad membeli sher tersebut pada harga RM200,000.
+            </p>
+        </div>
+        <div class="mb-2">
+            <button id='goto-mlt' class='w-full py-2 rounded-full bg-green-500 text-center text-white'> Selanjutnya </button>
+        </div>
+    </div>
+    
 </div>
 
 <script>
@@ -253,7 +275,37 @@
 
     });
 
+    $( "#goto-stock-4" ).click(function() {
+        $("#stocks-1").attr("hidden",true);
+        $("#stocks-2").attr("hidden",true);
+        $("#stocks-3").attr("hidden",true);
+        $("#stocks-4").attr("hidden",true);
+        
+        // tb_label>span name=listing_detail[0]
+        // $(".tb_label > .listing_detail> div:first-child").click()
+        window.location.href = "https://www.bursamarketplace.com/mkt/themarket/stock/GENM";
+        $(".duitlingo-widget-body").attr("hidden",true);
+    });
+
     $("#goto-mlt" ).click(function() {
         window.location.href = "https://www.bursamarketplace.com/mlt/myportfolio";
     });
+
+    $(document).ready(function(){
+        console.log($(".languageMode_txt").text())
+        if ($(".languageMode_txt").text() === 'Bahasa:'){
+            $("#stocks-1").attr("hidden",true);
+            $("#stocks-1-malay").attr("hidden",false);
+            $("#stocks-1-malay").attr("data-been-here-before", true);
+
+            console.log($("#stocks-1-malay").attr("data-been-here-before"))
+        }
+
+        // console.log($("#stocks-1-malay").attr("data-been-here-before"))
+        // if ($(".languageMode_txt").text() === 'Language:' && $("#stocks-1-malay").attr("data-been-here-before") === true){
+        //     alert("Bruh")
+        // }
+    })
+    
+    
 </script>
