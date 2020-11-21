@@ -4,14 +4,14 @@
     </svg> -->
     <div id='mlt-1' class='flex flex-col justify-between h-full'>
         <div>
-            <p class='text-xl font-bold mb-4'> Are We Fucked? </p>
+            <p class='text-xl font-bold mb-4'> Your Stock is in the red! </p>
             <p class='text-md text-gray-800 mb-2'> 
                 Oh no, the value of a stock in your portfolio has declined by 15%!
             </p>
             <p class='text-md text-gray-800 mb-12'> 
                 But don’t panic or make any decision that is driven by your emotions.
             </p>
-            <p class='text-md text-gray-800 font-bold mb-2'> 
+            <p class='text-md text-black font-bold mb-2'> 
                 How should you handle this situation?
             </p>
             <p class='text-md text-gray-800 mb-2'> 
@@ -26,9 +26,9 @@
 </div>
 
 <script>
-    $("#goto-mlt-2" ).click(function() {
-        window.location.href = "https://www.bursamarketplace.com/mlt/myportfolio";
-    });
+    // $("#goto-mlt-2" ).click(function() {
+    //     window.location.href = "https://www.bursamarketplace.com/mlt/myportfolio";
+    // });
 
     const targetNode = document.getElementById('myp_portfolio_loader');
     console.log(targetNode)
@@ -41,15 +41,20 @@
         for(const mutation of mutationsList) {
             $(mutation.target.innerHTML).each(function(idx, tr){
                 if (idx === 0){
-                let tr = $("#myp_portfolio_loader" ).find('tr').eq(0)
-                $(tr).find('td').eq(2).text('RM8,520')
-                $(tr).find('td').eq(3).text('RM4.50')
+                    let tr = $("#myp_portfolio_loader" ).find('tr').eq(0)
+                    $(tr).find('td').eq(2).text('RM8,520')
+                    $(tr).find('td').eq(3).text('RM4.50')
 
-                let units_elem = '<span>30</span><div><small>3000 units</small></div>'
-                $(tr).find('td').eq(4).html(units_elem)
+                    let units_elem = '<span>30</span><div><small>3000 units</small></div>'
+                    $(tr).find('td').eq(4).html(units_elem)
 
-                let lost_elem = '<span class="text-red-500 shadow-lg">RM1,278<br>-15.1%</span>'
-                $(tr).find('td').eq(5).html(lost_elem)
+                    let lost_elem = '<span class="text-red-500 shadow-lg">RM1,278<br>-15.1%</span>'
+                    $(tr).find('td').eq(5).html(lost_elem)
+
+                    let value_elem = '<span class="text-red-500 shadow-lg">RM7,242.00</span>'
+                    
+                    $(tr).find('td').eq(6).html(value_elem)
+                
                 }
                 showWidget();
             })
@@ -58,17 +63,33 @@
     };
 
     // Create an observer instance linked to the callback function
-    const observer = new MutationObserver(callback);
+    var observer = new MutationObserver(callback);
 
     // Start observing the target node for configured mutations
     observer.observe(targetNode, config);
 
     // // Later, you can stop observing
-    // // observer.disconnect();
+    // observer.disconnect();
     
     function showWidget() {
-        $("#dl-mlt-widget").attr("hidden",false);
+        // setTimeout(function(){
+            $("#dl-mlt-widget").attr("hidden",false);
+            observer.disconnect();
+        // }, 3000)
     }
+    
+    $( "#goto-mlt-2" ).click(function() {
+        $("#dl-mlt-widget").attr("hidden",true);
+
+        let tr = $("#myp_portfolio_loader" ).find('tr').eq(0)
+        $(tr).find('td').eq(1).addClass('relative')
+        $(tr).find('td').eq(1).append("<div class='duitlingo-widget-body-small p-2 text-md'> First, let's see what is going on with this stock. Click on the glowing icon above </div>")
+        // $("div:contains(MTAG GROUP BHD)").addClass('relative')
+        // $("div:contains(MTAG GROUP BHD)").append("<div class='absolute'> TESTING </div>")
+        $('a[href$="https://www.bursamarketplace.com/mkt/themarket/stock/MTAG"]').addClass("bg-blue-300 animate-pulse rounded-full")
+        // $("a.nav_learn").addClass("bg-blue-200 animate-pulse")
+        
+    });
     
     $(document).ready(function(){
         
