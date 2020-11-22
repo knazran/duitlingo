@@ -117,6 +117,10 @@
         $(".duitlingo-widget-body").attr("style","height:auto");
         $("#first-intro").attr("hidden",true);
         $("#dl-learn-more").attr("hidden",false);
+
+        $('#dl-learn-more').outerHeight();
+        // Trigger our CSS transition
+        $('#dl-learn-more').addClass('is-open');
     })
 
     $( "#goto-features-next" ).click(function() {

@@ -17,6 +17,25 @@
     /* background: linear-gradient(90deg, #496AE2 0%, #5F9AF3 62.99%, #6FBEFF 86.48%); */
 }
 
+.duitlingo-widget-body-hidden {
+  position: fixed; 
+  right: 20px; 
+  bottom: 64px; 
+  width: 56px; 
+  height: 56px;  
+  z-index: 1300; 
+  background: #F7F7F7;
+  /* border: 3px solid #C0C5DB; */
+  box-shadow: 0px 16px 16px rgba(0, 0, 0, 0.25) !important;
+  border-radius: 15px !important;
+  padding: 1.5rem;
+  overflow: hidden;
+  transition: max-height 1s ease-in;
+  max-height: 2000px;
+
+  /* background: linear-gradient(90deg, #496AE2 0%, #5F9AF3 62.99%, #6FBEFF 86.48%); */
+}
+
 .duitlingo-widget-body-small {
   position: absolute; 
   /* right: -30px;  */
@@ -112,8 +131,8 @@
 
 
 .svg-icon {
-    width: 1em;
-    height: 1em;
+    width: 2em;
+    height: 2em;
   }
   
 .svg-icon path,
